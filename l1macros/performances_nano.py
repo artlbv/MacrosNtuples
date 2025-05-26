@@ -121,7 +121,9 @@ def main():
     h.set_runnb_bins(df)
 
     #Define ETMHF
-    df = h.L1ETMHF(df)
+    if args.channel != 'ZToEE':
+        df = h.L1ETMHF(df)
+    
     if args.outputFile == '':
         args.outputFile = 'output_'+args.channel+'.root'
     out = ROOT.TFile(args.outputFile, "recreate")
