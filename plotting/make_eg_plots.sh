@@ -145,6 +145,18 @@ $makeeff -i $filezee \
     --plotname L1EG_EffVsEtaPhi \
     --axisranges -2.5 2.5 -3.1416 3.1416 0 1.1
 
+$makeeff -i $filezee \
+    --num h_EG25_Eta_Numerator \
+    --den h_EG25_Eta_Denominator   \
+    --xtitle '#eta^{e}(reco)' \
+    # --ytitle '#phi^{e}(reco)' \
+    --ytitle 'L1EG25 efficiency (p_{T}^{e}(reco) > 30 GeV)' \
+    --legend '' \
+    --extralabel '#splitline{Z#rightarrowee}' \
+    --toplabel "$toplabel" \
+    --plotname L1EG_EffVsEta \
+    --axisranges -2.5 2.5 
+
 # Postfiring vs Eta Phi
 
  $makeeff \

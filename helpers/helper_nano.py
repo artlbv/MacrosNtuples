@@ -487,6 +487,14 @@ def ZEE_Plots(df, suffix = ''):
             histos['h_EG25_EtaPhi_Numerator'+iso+suffix] = df_eg[i].Histo2D(ROOT.RDF.TH2DModel('h_EG25_EtaPhi_Numerator'+iso+suffix, '', 100, -5,5, 100, -3.1416, 3.1416), 'probePt30PassL1EG25_Eta', 'probePt30PassL1EG25_Phi')
             histos['h_EG25_EtaPhi_Denominator'+iso+suffix] = df_eg[i].Histo2D(ROOT.RDF.TH2DModel('h_EG25_EtaPhi_Denominator'+iso+suffix, '', 100, -5,5, 100, -3.1416, 3.1416), 'probePt30_Eta', 'probePt30_Phi')
 
+            # 1D vs Eta
+            # print(80*"#")
+            # print(80*"#")
+            # print(80*"#")
+            # print("HEEEELOOO")
+            histos['h_EG25_Eta_Numerator'+iso+suffix] = df_eg[i].Histo1D(ROOT.RDF.TH1DModel('h_EG25_Eta_Numerator'+iso+suffix, '', 100, -3,3, ), 'probePt30PassL1EG25_Eta')
+            histos['h_EG25_Eta_Denominator'+iso+suffix] = df_eg[i].Histo1D(ROOT.RDF.TH1DModel('h_EG25_Eta_Denominator'+iso+suffix, '', 100, -3,3, ), 'probePt30_Eta',)
+
         
         if iso == 'EGNonIso' and config['Prefiring']:
             for bx in ['min1', '0', 'plus1'] :

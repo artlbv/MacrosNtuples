@@ -191,6 +191,28 @@ def main():
                 plotname = channelname + '_L1EG_EffVsEtaPhi',
                 axisranges = [-2.5, 2.5, -3.1416, 3.1416, 0, 1.1],
                 )
+            
+            drawplots.makeeff(
+                        inputFiles_list = [input_file],
+                        saveplot = True,
+                        dirname = args.dir + subfolder,
+                        nvtx_suffix = s,
+                        den = [f'h_EG25_Eta_Denominator{iso}' for iso in config['Isos']],
+                        num = [f'h_EG25_Eta_Numerator{iso}' for iso in config['Isos']],
+                        # den = ['h_{}_plots_{}'.format(iso, eta_range) for iso in config['Isos']],
+                        # num = ['h_{}_plots_{}_l1thrgeq{}'.format(iso, eta_range, thr) for iso in config['Isos']],
+                        xtitle = '\eta^{e}(reco)',
+                        # ytitle = 'Efficiency',
+                        ytitle = 'L1EG25 efficiency (p_{T}^{e}(reco) > 30 GeV)',
+                        legendlabels = [iso for iso in config['Isos']],
+                        #axisranges = [3, 1000],
+                        # extralabel = "#splitline{"+eventselection+", All qual.}}{{p_{{T}}^{{L1 EG}} #geq {} GeV, {}}}".format(thr, eta_label[1:-1]),
+                        extralabel = '#splitline{'+eventselection+'}',
+                        # setlogx = True,
+                        top_label = toplabel,
+                        plotname = channelname + '_L1EG{}_EffVsEta_{}_IsoComparison'.format(thr, r) ,
+                        )
+
 
         if config['Prefiring']:
             # Postfiring vs Eta 
